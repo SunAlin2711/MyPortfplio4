@@ -1,0 +1,19 @@
+function myFunction() {
+        var dots = document.getElementById("dots");
+        var moreText = document.getElementById("more");
+        var btnText = document.getElementById("button");
+        var header = document.getElementById("MyHeader");
+
+      
+        if (!dots.classList.contains("visible")) {
+            dots.classList.add("visible");
+            btnText.innerHTML = "Показать меньше";
+            moreText.style.display = "inline";
+            header.style.height = "1800px"; 
+        } else {
+            dots.classList.remove("visible");
+            btnText.innerHTML = "Показать больше";
+            moreText.style.display = "none";
+            header.style.height = "1070px"; 
+    }
+}
