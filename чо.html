@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>математек</title>
+    </head>
+    <body>
+        <script> 
+        
+        function summaOfNumbers() {
+        let number = 476;
+        let hundred = Math.floor(number / 100);
+        let dozen = Math.floor((number % 100) / 10);
+        let unit = number % 10;
+
+        let numbers = [hundred, dozen, unit];
+        numbers.sort((a,b) => b-a);
+
+        return numbers[0] + numbers[1];
+
+        }
+           console.log(summaOfNumbers(number));
+        
+        </script>
+    </body>

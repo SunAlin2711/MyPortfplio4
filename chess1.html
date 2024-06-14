@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chess</title>
+</head>
+<body>
+  <p>Ввыберите ячейку:</p>
+  <input type="a" id="a" placeholder="a">
+  <input type="b" id="b" placeholder="b">
+  <input type="c" id="c" placeholder="c">
+  <input type="d" id="d" placeholder="d">
+  <button onclick="checkEvennumbers()">Проверить</button>
+  <div id="results"></div>
+
+
+  <script>
+    function checkEvennumbers() {
+    function rook(a, b, c, d){
+      return a === c || b === d;
+    }
+    function bishop(a, b, c, d){
+      return Math.abs(a-c) === Math.abs(b-d);
+    }
+    function king(a, b, c, d){
+      return Math.abs(a-c) <= 1 && Math.abs(b-d) <= 1; 
+    }
+    function queen(a, b, c, d){
+      return Math.abs(a-c) === Math.abs(b-d) || a === c || b === d;
+    }
+
+  
+
+    const resultsDiv = document.getElementById('results');
+
+    if(rook(a, b, c, d)){
+      resultsDiv.innerHTML +=`Ладья на поле (${a},${b}) угрожает полю (${c},${d})<br>`;
+    } else{
+      resultsDiv.innerHTML +=`Ладья на поле (${a},${b}) не угрожает полю (${c},${d})<br>`;
+    }
+
+    if(bishop(a, b, c, d)){
+      resultsDiv.innerHTML +=`Слон на поле (${a},${b}) угрожает полю (${c},${d})<br>`;
+    } else{
+      resultsDiv.innerHTML +=`Слон на поле (${a},${b}) не угрожает полю (${c},${d})<br>`;
+    }
+
+    if(king(a, b, c, d)){
+      resultsDiv.innerHTML +=`Король на поле (${a},${b}) может одним ходом попасть на поле (${c},${d})<br>`;
+    } else{
+      resultsDiv.innerHTML +=`Король на поле (${a},${b}) не может одним ходом попасть на поле (${c},${d})<br>`;
+    }
+
+    if(queen(a, b, c, d)){
+      resultsDiv.innerHTML +=`Ферзь на поле (${a},${b}) угрожает полю (${c},${d})<br>`;
+    } else{
+      resultsDiv.innerHTML +=`Ферзь на поле (${a},${b}) не угрожает полю (${c},${d})<br>`;
+    }
+  }
+  </script>
+</body>
+</html>
